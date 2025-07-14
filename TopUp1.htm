@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technovate - Topup</title>
+
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font-Awesom -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1e3a8a;
+      /* Deep blue background */
+      color: #e0f2fe;
+      /* Light blue text color for contrast */
+    }
+
+    /* Ensure emojis render well */
+    .flag-emoji {
+      font-size: 1.5rem;
+      /* Adjust size as needed */
+      line-height: 1;
+      margin-right: 0.5rem;
+    }
+
+    .flag-group-emoji {
+      font-size: 2rem;
+      /* Larger for group display */
+      margin: 0 0.25rem;
+    }
+
+    /* Hide scrollbar for a cleaner look */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .amount-box.selected {
+      background-color: #fafafa;
+      /* Tailwind's bg-blue-200 */
+      border-color: #2563eb;
+      /* Tailwind's border-blue-600 */
+    }
+
+
+    /* Animate check mark */
+
+    .animate-check .circle {
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+      stroke: currentColor;
+      animation: draw-circle 0.4s ease-out forwards;
+    }
+
+    .animate-check .check {
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      stroke: currentColor;
+      animation: draw-check 0.3s 0.4s ease-out forwards;
+    }
+
+    @keyframes draw-circle {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes draw-check {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="bg-[#0b2b5b] sticky top-0 z-50 p-2  shadow-lg">
+    <div class="w-[1200px] max-w-[96%] mx-auto flex items-center justify-between">
+
+      <h1 class="text-2xl font-light text-white">GlingGring</h1>
+      <button
+        class="bg-blue-300 text-blue-800 font-book py-1 px-6 rounded-lg shadow-md transition text-sm duration-300 ease-in-out transform hover:scale-105">
+        LOGIN
+      </button>
+    </div>
+  </header>
+
+
+  <!--  -->
+
+
+
+  <div class="flex-grow p-4 overflow-y-auto h-full mb-[100px]">
+    <div class="flex flex-col md:flex-row w-full md:max-w-[1200px] mx-auto gap-2 h-full">
+
+      <!-- Left half - align content to right, full height -->
+      <div class="w-full md:w-1/2 flex justify-center md:justify-end h-full">
+        <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-500 rounded md:h-screen">
+          <h1 class="text-2xl text-blue-900 tracking-wide mb-2">
+            Gling Gring Top-up </h1>
+
+
+          <div class="flex flex-col w-full max-w-md">
+            <label for="telephone1" class="mb-1 text-sm font-medium text-gray-800 pt-4 block">
+              Telephone No.
+            </label>
+            <input type="tel" id="telephone1" name="telephone" placeholder="Enter your phone number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black" />
+          </div>
+
+
+          <div class="flex justify-between items-center pt-4 mb-1">
+            <label for="telephone2" class="text-sm font-medium text-gray-800">
+              Select Amount
+            </label>
+            <p class="text-xs text-gray-500">
+              Validity 30 days
+            </p>
+          </div>
+
+
+          <div class="grid grid-cols-4 gap-2 max-w-md" id="amountGrid">
+
+            <label class="relative cursor-pointer">
+              <input type="radio" name="amount" value="250" class="sr-only" />
+
+              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                <!-- ✅ Animated Checkmark -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                  style="display: none;">
+                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                    stroke-width="4">
+                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                  </svg>
+                </div>
+
+                <div class="h-6"></div>
+                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 250</div>
+              </div>
+            </label>
+
+            <label class="relative cursor-pointer">
+              <input type="radio" name="amount" value="250" class="sr-only" />
+
+              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+
+                <!-- ✅ Animated Checkmark -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                  style="display: none;">
+                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                    stroke-width="4">
+                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                  </svg>
+                </div>
+
+                <div class="h-6"></div>
+                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 500</div>
+              </div>
+            </label>
+
+            <label class="relative cursor-pointer">
+              <input type="radio" name="amount" value="250" class="sr-only" />
+
+              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                <!-- ✅ Animated Checkmark -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                  style="display: none;">
+                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                    stroke-width="4">
+                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                  </svg>
+                </div>
+
+                <div class="h-6"></div>
+                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 750</div>
+              </div>
+            </label>
+
+            <label class="relative cursor-pointer">
+              <input type="radio" name="amount" value="250" class="sr-only" />
+
+              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                <!-- ✅ Animated Checkmark -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                  style="display: none;">
+                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                    stroke-width="4">
+                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                  </svg>
+                </div>
+
+                <div class="h-6"></div>
+                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
+              </div>
+            </label>
+
+            <label class="relative cursor-pointer">
+              <input type="radio" name="amount" value="250" class="sr-only" />
+
+              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                        flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                <!-- ✅ Animated Checkmark -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                  style="display: none;">
+                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                    stroke-width="4">
+                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                  </svg>
+                </div>
+
+                <div class="h-6"></div>
+                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
+              </div>
+            </label>
+
+            <label class="relative cursor-pointer">
+              <input type="radio" name="amount" value="250" class="sr-only" />
+
+              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                <!-- ✅ Animated Checkmark -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                  style="display: none;">
+                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                    stroke-width="4">
+                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                  </svg>
+                </div>
+
+                <div class="h-6"></div>
+                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
+              </div>
+            </label>
+
+
+          </div>
+
+          <button class="mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+            Continue
+          </button>
+
+        </div>
+      </div>
+
+
+
+
+
+      <!-- Right half - align content to left, full height -->
+      <div class="w-full md:w-1/2 flex justify-center md:justify-end h-full">
+
+        <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-500 rounded md:h-screen">
+          <h1 class="text-2xl text-blue-900 tracking-wide mb-2">
+            Data Top-up</h1>
+
+          <div class="flex flex-col w-full max-w-md">
+            <label for="telephone1" class="mb-1 text-sm font-medium text-gray-800 pt-4 block">
+              Telephone No.
+            </label>
+            <input type="tel" id="telephone" name="telephone" placeholder="Enter your phone number"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black" />
+          </div>
+
+
+          <!-- Tabs -->
+          <div class="flex space-x-4 w-full mb-4 mt-8">
+            <button class="tab-button px-4 py-2 flex-1 rounded-md bg-blue-700 text-white" data-tab="ais">AIS</button>
+            <button class="tab-button px-4 py-2 flex-1 rounded-md bg-blue-100 text-blue-700"
+              data-tab="true">True</button>
+            <button class="tab-button px-4 py-2 flex-1 rounded-md bg-blue-100 text-blue-700" data-tab="nt">NT</button>
+          </div>
+
+
+          <!-- ✅ Tab Content Wrapper with Fixed Min Height -->
+          <div class="relative min-h-[300px] transition-all duration-300">
+
+            <!-- Tab Content Sections -->
+            <div class="tab-content" id="ais">
+
+              <!-- Make flex-col so children stack vertically -->
+              <div class="flex flex-col justify-center md:justify-start w-full max-w-md">
+
+                <!-- Label -->
+                <label for="telephone2" class="mb-1 text-sm font-medium text-gray-800 block">
+                  Select Amount
+                </label>
+
+                <!-- Grid of Amount Boxes -->
+                <div class="grid grid-cols-4 gap-2" id="amountGrid">
+
+
+                  <label class="relative cursor-pointer">
+                    <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                    <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                        flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                      <!-- ✅ Animated Checkmark -->
+                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                        style="display: none;">
+                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                          stroke-width="4">
+                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                        </svg>
+                      </div>
+
+                      <!-- New GB Text -->
+                      <div class="text-xs text-gray-600 font-semibold">10 GB</div>
+
+                      <!-- Spacer if needed -->
+                      <div class="h-3"></div>
+
+                      <!-- Price Text -->
+                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                    </div>
+                  </label>
+
+
+                  <label class="relative cursor-pointer">
+                    <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                    <div
+                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                      <!-- ✅ Animated Checkmark -->
+                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                        style="display: none;">
+                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                          stroke-width="4">
+                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                        </svg>
+                      </div>
+
+                      <!-- New GB Text -->
+                      <div class="text-xs text-gray-600 font-semibold">25 GB</div>
+
+                      <!-- Spacer if needed -->
+                      <div class="h-3"></div>
+
+                      <!-- Price Text -->
+                      <div class="text-sm font-medium mb-[-6px]">฿ 500</div>
+                    </div>
+                  </label>
+
+
+                  <label class="relative cursor-pointer">
+                    <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                    <div
+                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                      <!-- ✅ Animated Checkmark -->
+                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                        style="display: none;">
+                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                          stroke-width="4">
+                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                        </svg>
+                      </div>
+
+                      <!-- New GB Text -->
+                      <div class="text-xs text-gray-600 font-semibold">40 GB</div>
+
+                      <!-- Spacer if needed -->
+                      <div class="h-3"></div>
+
+                      <!-- Price Text -->
+                      <div class="text-sm font-medium mb-[-6px]">฿ 400</div>
+                    </div>
+                  </label>
+
+
+                  <label class="relative cursor-pointer">
+                    <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                    <div
+                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                      <!-- ✅ Animated Checkmark -->
+                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                        style="display: none;">
+                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                          stroke-width="4">
+                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                        </svg>
+                      </div>
+
+                      <!-- New GB Text -->
+                      <div class="text-xs text-gray-600 font-semibold">50 GB</div>
+
+                      <!-- Spacer if needed -->
+                      <div class="h-3"></div>
+
+                      <!-- Price Text -->
+                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                    </div>
+                  </label>
+
+
+                  <label class="relative cursor-pointer">
+                    <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                    <div
+                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                      <!-- ✅ Animated Checkmark -->
+                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                        style="display: none;">
+                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                          stroke-width="4">
+                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                        </svg>
+                      </div>
+
+                      <!-- New GB Text -->
+                      <div class="text-xs text-gray-600 font-semibold">50 GB</div>
+
+                      <!-- Spacer if needed -->
+                      <div class="h-3"></div>
+
+                      <!-- Price Text -->
+                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                    </div>
+                  </label>
+
+
+                  <label class="relative cursor-pointer">
+                    <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                    <div
+                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                      <!-- ✅ Animated Checkmark -->
+                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                        style="display: none;">
+                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                          stroke-width="4">
+                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                        </svg>
+                      </div>
+
+                      <!-- New GB Text -->
+                      <div class="text-xs text-gray-600 font-semibold">50 GB</div>
+
+                      <!-- Spacer if needed -->
+                      <div class="h-3"></div>
+
+                      <!-- Price Text -->
+                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                    </div>
+                  </label>
+
+                </div>
+
+              </div>
+
+              <button
+                class="mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                Continue
+              </button>
+
+            </div>
+
+            <div class="tab-content hidden" id="true">
+              <div class="flex justify-center md:justify-start">
+                <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-700 rounded text-center">
+                  <h1 class="text-xl font-medium text-blue-900">True Data Top-up</h1>
+                  <p class="mt-8 text-gray-600">Coming Soon...</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-content hidden" id="nt">
+              <div class="flex justify-center md:justify-start">
+                <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-700 rounded text-center">
+                  <h1 class="text-xl font-medium text-blue-900">NT Data Top-up</h1>
+                  <p class="mt-8 text-gray-600">Coming Soon...</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!--  -->
+
+
+
+  <!-- Footer - fixed at bottom, responsive max width -->
+  <div class="fixed bottom-0 left-0 right-0 bg-[#0b2b5b] z-50">
+    <div class="w-[1200px] max-w-[96%] mx-auto">
+      <nav class="p-2 flex justify-around items-center shadow-lg">
+        <a href="#" class="flex flex-col items-center text-white hover:text-blue-200 transition duration-200">
+          <!-- Icon and label -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span class="text-xs mt-1">Home</span>
+        </a>
+
+
+        <a href="#" class="flex flex-col items-center text-blue-300 hover:text-blue-200 transition duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          <span class="text-xs mt-1">GlingGring</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-300 hover:text-blue-200 transition duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M16 8l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M5 3a2 2 0 00-2 2v1c0 1.1.9 2 2 2h4l4-4V3H5zM19 12a2 2 0 00-2-2h-1c-1.1 0-2 .9-2 2v4a2 2 0 002 2h1a2 2 0 002-2v-4z" />
+          </svg>
+          <span class="text-xs mt-1">Data-Voice</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-300 hover:text-blue-200 transition duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span class="text-xs mt-1">SIM - eSIM</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-300 hover:text-blue-200 transition duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M18.364 5.636l-3.536 3.536m0 0A9.953 9.953 0 0112 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 1.98-.593 3.823-1.602 5.385M18.364 5.636L12 12m0 0l-3.536 3.536M12 12l-3.536-3.536M12 12l3.536-3.536M12 12l-3.536 3.536" />
+          </svg>
+          <span class="text-xs mt-1">Support</span>
+        </a>
+
+
+      </nav>
+    </div>
+  </div>
+
+
+  <script>
+    document.querySelectorAll('#amountGrid').forEach((amountGrid) => {
+      amountGrid.addEventListener('change', () => {
+        const radios = amountGrid.querySelectorAll('input[type="radio"]');
+
+        radios.forEach((radio) => {
+          const label = radio.closest('label');
+          const box = label.querySelector('.amount-box');
+          const checkmark = label.querySelector('.checkmark');
+
+          if (radio.checked) {
+            box.classList.add('selected');
+            checkmark.style.display = 'flex';
+
+            // ✅ Restart SVG animation
+            const svg = checkmark.querySelector('svg');
+            svg.classList.remove('animate-check'); // Remove old class
+            void svg.offsetWidth; // Force reflow
+            svg.classList.add('animate-check'); // Re-add to animate
+          } else {
+            box.classList.remove('selected');
+            checkmark.style.display = 'none';
+          }
+        });
+      });
+    });
+
+  </script>
+
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-button');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selected = btn.dataset.tab;
+
+        // Toggle active button styles
+        buttons.forEach(b => {
+          b.classList.remove('bg-blue-700', 'text-white');
+          b.classList.add('bg-blue-100', 'text-blue-700');
+        });
+        btn.classList.add('bg-blue-700', 'text-white');
+        btn.classList.remove('bg-blue-100', 'text-blue-700');
+
+        // Toggle visible content
+        tabs.forEach(tab => {
+          if (tab.id === selected) {
+            tab.classList.remove('hidden');
+          } else {
+            tab.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>
