@@ -415,31 +415,32 @@
 
 
   <script>
-    const amountGrid = document.getElementById('amountGrid');
+    document.querySelectorAll('#amountGrid').forEach((amountGrid) => {
+      amountGrid.addEventListener('change', () => {
+        const radios = amountGrid.querySelectorAll('input[type="radio"]');
 
-    amountGrid.addEventListener('change', (e) => {
-      const radios = amountGrid.querySelectorAll('input[type="radio"]');
+        radios.forEach((radio) => {
+          const label = radio.closest('label');
+          const box = label.querySelector('.amount-box');
+          const checkmark = label.querySelector('.checkmark');
 
-      radios.forEach((radio) => {
-        const label = radio.closest('label');
-        const box = label.querySelector('.amount-box');
-        const checkmark = label.querySelector('.checkmark');
+          if (radio.checked) {
+            box.classList.add('selected');
+            checkmark.style.display = 'flex';
 
-        if (radio.checked) {
-          box.classList.add('selected');
-          checkmark.style.display = 'flex';
-
-          // Restart SVG animation
-          const svg = checkmark.querySelector('svg');
-          svg.classList.remove('animate-check'); // Remove old class
-          void svg.offsetWidth; // Trigger reflow
-          svg.classList.add('animate-check'); // Re-add to animate
-        } else {
-          box.classList.remove('selected');
-          checkmark.style.display = 'none';
-        }
+            // ✅ Restart SVG animation
+            const svg = checkmark.querySelector('svg');
+            svg.classList.remove('animate-check'); // Remove old class
+            void svg.offsetWidth; // Force reflow
+            svg.classList.add('animate-check'); // Re-add to animate
+          } else {
+            box.classList.remove('selected');
+            checkmark.style.display = 'none';
+          }
+        });
       });
     });
+
   </script>
 
 
