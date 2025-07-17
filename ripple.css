@@ -16,7 +16,7 @@
   position: absolute;
   border-radius: 50%;
   transform: scale(0);
-  animation: ripple-animate 800ms ease-out;
+  animation: ripple-animate .8s ease-out;
   opacity: 0.75;
   pointer-events: none;
   z-index: 1;
@@ -24,7 +24,7 @@
 
 @keyframes ripple-animate {
   to {
-    transform: scale(2.5);
+    transform: scale(2.0);
     opacity: 0;
   }
 }

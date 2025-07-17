@@ -148,7 +148,7 @@
 
           <!-- <div class="grid grid-cols-4 gap-2 max-w-md" id="amountGrid"> -->
 
-          <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid">
+          <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid1">
 
             <label class="relative cursor-pointer">
               <input type="radio" name="amount" value="250" class="sr-only" />
@@ -315,16 +315,24 @@
 
           <!-- Tabs -->
           <div class="flex space-x-4 w-full mb-4 mt-1">
-            <button class="tab-button border-b-4 border-transparent px-4 py-2 flex-1 text-center" data-tab="ais">
+            <!-- <button class="tab-button border-b-4 border-blue-600 px-4 py-2 flex-1 text-center" data-tab="ais">
+              <img src="img/AIS.png" class="w-20 h-auto mx-auto" />
+            </button> -->
+
+            <button class="tab-button ripple border-b-4 border-transparent px-4 py-2 flex-1 text-center"
+              data-ripple="rgba(255, 255, 255, 0.9)" data-tab="ais">
               <img src="img/AIS.png" class="w-20 h-auto mx-auto" />
             </button>
 
 
-
-            <button class="tab-button border-b-4 border-transparent px-4 py-2 flex-1 text-center" data-tab="true">
+            <button class="tab-button ripple border-b-4 border-transparent px-4 py-2 flex-1 text-center"
+              data-ripple="rgba(255, 255, 255, 0.9)" data-tab="true">
               <img src="img/True.png" class="w-20 h-auto mx-auto" />
             </button>
-            <button class="tab-button border-b-4 border-transparent px-4 py-2 flex-1 text-center" data-tab="nt">
+
+
+            <button class="tab-button ripple border-b-4 border-transparent px-4 py-2 flex-1 text-center"
+              data-ripple="rgba(255, 255, 255, 0.9)" data-tab="nt">
               <img src="img/NT.png" class="w-20 h-auto mx-auto" />
             </button>
           </div>
@@ -346,7 +354,7 @@
 
                 <!-- Grid of Amount Boxes -->
                 <!-- <div class="grid grid-cols-4 gap-2" id="amountGrid"> -->
-                <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid2">
 
                   <label class="relative cursor-pointer">
                     <input type="radio" name="amount2" value="250" class="sr-only" />
@@ -620,7 +628,10 @@
 
 
   <script>
-    document.querySelectorAll('#amountGrid').forEach((amountGrid) => {
+    ['amountGrid1', 'amountGrid2'].forEach((id) => {
+      const amountGrid = document.getElementById(id);
+      if (!amountGrid) return;
+
       amountGrid.addEventListener('change', () => {
         const radios = amountGrid.querySelectorAll('input[type="radio"]');
 
@@ -633,11 +644,11 @@
             box.classList.add('selected');
             checkmark.style.display = 'flex';
 
-            // ✅ Restart SVG animation
+            // Restart SVG animation
             const svg = checkmark.querySelector('svg');
-            svg.classList.remove('animate-check'); // Remove old class
-            void svg.offsetWidth; // Force reflow
-            svg.classList.add('animate-check'); // Re-add to animate
+            svg.classList.remove('animate-check');
+            void svg.offsetWidth; // Trigger reflow to restart animation
+            svg.classList.add('animate-check');
           } else {
             box.classList.remove('selected');
             checkmark.style.display = 'none';
@@ -645,8 +656,8 @@
         });
       });
     });
-
   </script>
+
 
 
   <script>
