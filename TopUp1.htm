@@ -531,7 +531,7 @@
 
               </div>
 
-              <button
+              <button id="continueBtn"
                 class="ripple mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
                 data-ripple="rgba(255, 255, 255, 0.6)">
                 Continue
@@ -627,6 +627,77 @@
     </div>
   </div>
 
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+  <!-- Modal -->
+  <div id="slidePanel" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div
+      class="bg-white w-full max-w-[500px] max-h-[90vh] overflow-y-auto rounded-lg shadow-xl transform transition-all duration-300">
+      <!-- Header -->
+      <div class="p-4 flex justify-between items-center">
+        <h2 class="text-lg font-semibold text-blue-900">Confirm Top-up</h2>
+        <button id="closePanelBtn" class="text-gray-500 hover:text-gray-800">
+          <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8 text-gray-500 hover:text-gray-800 cursor-pointer" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-1 gap-y-4 w-[800px] max-w-[96%] mx-auto">
+
+          <div>
+            <p class="text-sm text-gray-500 mb-1">Your Phone No.</p>
+            <p class="text-2xl md:text-xl font-semibold text-gray-600">98454 98454</p>
+          </div>
+
+          <div>
+            <p class="text-sm text-gray-500 mb-1">Service Provider</p>
+            <img src="/img/AIS.png" alt="AIS Logo" class="w-24 h-auto" />
+          </div>
+
+          <div>
+            <p class="text-sm text-gray-500 mb-1">Selected Data Top-Up</p>
+            <p class="text-2xl md:text-xl font-semibold text-gray-600">10 GB Data</p>
+          </div>
+
+          <div>
+            <p class="text-sm text-gray-500 mb-1">Price</p>
+            <p class="text-2xl md:text-xl font-semibold text-gray-600">฿ 250</p>
+          </div>
+
+          <!-- Note Row -->
+          <div class="col-span-2">
+            <p class="text-sm text-gray-400">
+              Please note<br />
+              This top-up does not contain any phone call balance.
+            </p>
+          </div>
+
+
+          <div class="col-span-2">
+            <button
+              class="ripple w-full bg-blue-600 text-white text-sm font-normal py-2 px-4 rounded-sm hover:bg-blue-700 transition duration-200"
+              data-ripple="rgba(255, 255, 255, 0.6)">
+              Proceed to Pay
+            </button>
+            <button
+              class="ripple w-full bg-gray-200 text-gray-800 text-sm font-normal mt-2 py-1 px-4 rounded-sm hover:bg-gray-300 transition duration-200"
+              data-ripple="rgba(255, 255, 255, 0.6)">
+              Cancel
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   <script>
     ['amountGrid1', 'amountGrid2'].forEach((id) => {
@@ -660,7 +731,6 @@
   </script>
 
 
-
   <script>
     const buttons = document.querySelectorAll('.tab-button');
     const tabs = document.querySelectorAll('.tab-content');
@@ -690,6 +760,46 @@
       });
     });
   </script>
+
+
+
+  <script>
+
+    document.getElementById("continueBtn").addEventListener("click", openModal);
+
+
+    // Elements
+    const overlay = document.getElementById("overlay");
+    const slidePanel = document.getElementById("slidePanel");
+    const closeBtn = document.getElementById("closePanelBtn");
+
+    // Open Modal
+    function openModal() {
+      overlay.classList.remove("hidden");
+      slidePanel.classList.remove("hidden");
+    }
+
+    // Close Modal
+    function closeModal() {
+      overlay.classList.add("hidden");
+      slidePanel.classList.add("hidden");
+    }
+
+    // ESC key to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Overlay click to close
+    overlay.addEventListener("click", closeModal);
+
+    // Close button click
+    closeBtn.addEventListener("click", closeModal);
+
+  </script>
+
 
 
 
