@@ -765,14 +765,12 @@
 
 
   <script>
-
-    document.getElementById("continueBtn").addEventListener("click", openModal);
-
-
-    // Elements
     const overlay = document.getElementById("overlay");
     const slidePanel = document.getElementById("slidePanel");
+    const modalContent = slidePanel.querySelector("div.bg-white"); // Your modal box
     const closeBtn = document.getElementById("closePanelBtn");
+    const continueBtn = document.getElementById("continueBtn");
+    const cancelBtn = slidePanel.querySelector('button.bg-gray-200');
 
     // Open Modal
     function openModal() {
@@ -786,6 +784,9 @@
       slidePanel.classList.add("hidden");
     }
 
+    // Open on button click
+    continueBtn.addEventListener("click", openModal);
+
     // ESC key to close
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -793,10 +794,21 @@
       }
     });
 
-    // Overlay click to close
-    overlay.addEventListener("click", closeModal);
+    // Close on clicking the overlay background
+    document.addEventListener("click", function (e) {
+      if (
+        !slidePanel.classList.contains("hidden") &&
+        !modalContent.contains(e.target) &&
+        !e.target.closest("#continueBtn")
+      ) {
+        closeModal();
+      }
+    });
 
-    // Close button click
+    // Close on Cancel
+    cancelBtn.addEventListener("click", closeModal);
+
+    // Close on X
     closeBtn.addEventListener("click", closeModal);
 
   </script>
