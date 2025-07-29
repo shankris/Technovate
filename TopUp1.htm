@@ -93,6 +93,17 @@
     .tab-button {
       transition: border-color 0.3s ease;
     }
+
+    @layer utilities {
+      .font-emoji {
+        font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+      }
+    }
+
+    .flag-group-emoji {
+      display: inline;
+      font-size: 1.25rem;
+    }
   </style>
 
 
@@ -117,446 +128,540 @@
 
 
 
-  <div class="flex-grow p-4 overflow-y-auto h-full mb-[100px]">
-    <div class="flex flex-col md:flex-row w-full md:max-w-[1200px] mx-auto gap-2 h-full lg:gap-20">
+  <div class="flex-grow p-4 overflow-y-auto mb-[100px]">
+    <div class="flex flex-col md:flex-row w-full md:max-w-[1200px] md:mx-auto gap-2 lg:gap-2 lg:h-[640px]">
+      <!-- Left half -->
+      <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+        <div class="w-full lg:h-full flex items-stretch">
+          <div class="lg:max-w-[600px] md:max-w-[600px] w-full bg-blue-100 p-4 text-gray-500 rounded">
+            <h1 class="text-2xl text-blue-900 tracking-wide mb-2">Gling Gring Top-up </h1>
 
-      <!-- Left half - align content to right, full height -->
-      <div class="w-full md:w-1/2 flex justify-center md:justify-end h-full">
-        <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-500 rounded md:h-screen">
-          <h1 class="text-2xl text-blue-900 tracking-wide mb-2">Gling Gring Top-up </h1>
+
+            <div class="flex flex-col w-full max-w-md">
+              <label for="telephone1" class="mb-1 text-sm font-medium text-gray-800 pt-4 block">
+                Telephone No.
+              </label>
+              <input type="tel" id="telephone1" name="telephone" placeholder="Enter your phone number"
+                class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black" />
+            </div>
 
 
-          <div class="flex flex-col w-full max-w-md">
-            <label for="telephone1" class="mb-1 text-sm font-medium text-gray-800 pt-4 block">
-              Telephone No.
+            <!-- Label -->
+            <label for="telephone2" class="mt-2 text-sm font-medium text-gray-800 block">
+              Calling Rates
             </label>
-            <input type="tel" id="telephone1" name="telephone" placeholder="Enter your phone number"
-              class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black" />
-          </div>
+            <!-- Horizontally scrollable divs -->
+            <div class="w-full overflow-x-auto whitespace-nowrap py-1 px-2">
+              <div class="inline-flex gap-2  no-scrollbar lg:overflow-x-auto lg:scrollbar">
 
-          <div class="flex justify-between items-center pt-4 mb-1">
-            <label for="telephone2" class="text-sm font-medium text-gray-800">
-              Select Amount
-            </label>
-            <p class="text-xs text-gray-500">
-              Validity 30 days
-            </p>
-          </div>
 
-          <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid1">
 
-            <label class="relative cursor-pointer">
-              <input type="radio" name="amount" value="250" class="sr-only" />
 
-              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+
+
+
+                <!-- Radio + Label (separated) -->
+                <label class="min-w-[200px] h-[71px] bg-white p-2 text-center text-sm rounded-t-[4px] 
+         border-b-4 border-gray-300 transition-all duration-200 
+         peer-checked:border-blue-500 block" data-ripple="rgba(0, 0, 255, 0.3)">
+                  1 BTS / Sec
+                  <div class="flex items-center justify-center text-sm space-x-2 pt-2 mb-1">
+                    <span class="flag-group-emoji">🇮🇱</span>
+                    <span class="flag-group-emoji">🇰🇭</span>
+                    <span class="flag-group-emoji">🇲🇲</span>
+                    <span class="flag-group-emoji">🇻🇳</span>
+                    <span class="flag-group-emoji">🇯🇵</span>
+                    <span class="flag-group-emoji">🇭🇰</span>
+                  </div>
+                </label>
+
+                <label class="min-w-[200px] h-[71px] bg-white p-2 text-center text-sm rounded-t-[4px]
+                       border-b-4 border-gray-300 transition-all duration-200 
+                       peer-checked:border-blue-500 block" data-ripple="rgba(0, 0, 255, 0.3)">
+                  2 BTS / Sec
+                  <div class="flex items-center justify-center text-sm space-x-2 pt-2 mb-1">
+                    <span class="flag-group-emoji">🇮🇱</span>
+                    <span class="flag-group-emoji">🇰🇭</span>
+                    <span class="flag-group-emoji">🇲🇲</span>
+                    <span class="flag-group-emoji">🇻🇳</span>
+                    <span class="flag-group-emoji">🇯🇵</span>
+                    <span class="flag-group-emoji">🇭🇰</span>
+                  </div>
+
+                </label>
+
+                <label class="min-w-[200px] h-[71px] bg-white p-2 text-center text-sm rounded-t-[4px]
+                       border-b-4 border-gray-300 transition-all duration-200 
+                       peer-checked:border-blue-500 block" data-ripple="rgba(0, 0, 255, 0.3)">
+                  3 BTS / Sec
+                  <div class="flex items-center justify-center text-sm space-x-2 pt-2 mb-1">
+                    <span class="flag-group-emoji">🇮🇱</span>
+                    <span class="flag-group-emoji">🇰🇭</span>
+                    <span class="flag-group-emoji">🇲🇲</span>
+                    <span class="flag-group-emoji">🇻🇳</span>
+                    <span class="flag-group-emoji">🇯🇵</span>
+                    <span class="flag-group-emoji">🇭🇰</span>
+                  </div>
+                </label>
+
+                <label class="min-w-[200px] h-[71px] bg-white p-2 text-center text-sm rounded-t-[4px]
+                       border-b-4 border-gray-300 transition-all duration-200 
+                       peer-checked:border-blue-500 block" data-ripple="rgba(0, 0, 255, 0.3)">
+                  4 BTS / Sec
+                  <div class="flex items-center justify-center text-sm space-x-2 pt-2 mb-1">
+                    <span class="flag-group-emoji">🇮🇱</span>
+                    <span class="flag-group-emoji">🇰🇭</span>
+                    <span class="flag-group-emoji">🇲🇲</span>
+                    <span class="flag-group-emoji">🇻🇳</span>
+                    <span class="flag-group-emoji">🇯🇵</span>
+                    <span class="flag-group-emoji">🇭🇰</span>
+                  </div>
+                </label>
+
+                <label class="min-w-[200px] h-[71px] bg-white p-2 text-center text-sm rrounded-t-[4px]
+                       border-b-4 border-gray-300 transition-all duration-200 
+                       peer-checked:border-blue-500 block" data-ripple="rgba(0, 0, 255, 0.3)">
+                  5 BTS / Sec
+                  <div class="flex items-center justify-center text-sm space-x-2 pt-2 mb-1">
+                    <span class="flag-group-emoji">🇮🇱</span>
+                    <span class="flag-group-emoji">🇰🇭</span>
+                    <span class="flag-group-emoji">🇲🇲</span>
+                    <span class="flag-group-emoji">🇻🇳</span>
+                    <span class="flag-group-emoji">🇯🇵</span>
+                    <span class="flag-group-emoji">🇭🇰</span>
+                  </div>
+                </label>
+
+
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2 mb-1">
+              <label for="telephone2" class="text-sm font-medium text-gray-800">
+                Select Amount
+              </label>
+              <p class="text-xs text-gray-500">
+                Validity 30 days
+              </p>
+            </div>
+
+
+            <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid1">
+
+              <label class="relative cursor-pointer">
+                <input type="radio" name="amount" value="250" class="sr-only" />
+
+                <div class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
                             flex flex-col justify-between items-center p-2 transition amount-box relative">
 
-                <!-- ✅ Animated Checkmark -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
-                  style="display: none;">
-                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                    stroke-width="4">
-                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                  </svg>
+                  <!-- ✅ Animated Checkmark -->
+                  <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                    style="display: none;">
+                    <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                      stroke-width="4">
+                      <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                      <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                    </svg>
+                  </div>
+
+                  <div class="h-6"></div>
+                  <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 250</div>
                 </div>
+              </label>
 
-                <div class="h-6"></div>
-                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 250</div>
-              </div>
-            </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="amount" value="250" class="sr-only" />
 
-            <label class="relative cursor-pointer">
-              <input type="radio" name="amount" value="250" class="sr-only" />
-
-              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                <div class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
                             flex flex-col justify-between items-center p-2 transition amount-box relative">
 
 
-                <!-- ✅ Animated Checkmark -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
-                  style="display: none;">
-                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                    stroke-width="4">
-                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                  </svg>
+                  <!-- ✅ Animated Checkmark -->
+                  <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                    style="display: none;">
+                    <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                      stroke-width="4">
+                      <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                      <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                    </svg>
+                  </div>
+
+                  <div class="h-6"></div>
+                  <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 500</div>
                 </div>
+              </label>
 
-                <div class="h-6"></div>
-                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 500</div>
-              </div>
-            </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="amount" value="250" class="sr-only" />
 
-            <label class="relative cursor-pointer">
-              <input type="radio" name="amount" value="250" class="sr-only" />
-
-              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                <div class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
                             flex flex-col justify-between items-center p-2 transition amount-box relative">
 
-                <!-- ✅ Animated Checkmark -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
-                  style="display: none;">
-                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                    stroke-width="4">
-                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                  </svg>
+                  <!-- ✅ Animated Checkmark -->
+                  <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                    style="display: none;">
+                    <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                      stroke-width="4">
+                      <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                      <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                    </svg>
+                  </div>
+
+                  <div class="h-6"></div>
+                  <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 750</div>
                 </div>
+              </label>
 
-                <div class="h-6"></div>
-                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 750</div>
-              </div>
-            </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="amount" value="250" class="sr-only" />
 
-            <label class="relative cursor-pointer">
-              <input type="radio" name="amount" value="250" class="sr-only" />
-
-              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                <div class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
                             flex flex-col justify-between items-center p-2 transition amount-box relative">
 
-                <!-- ✅ Animated Checkmark -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
-                  style="display: none;">
-                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                    stroke-width="4">
-                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                  </svg>
+                  <!-- ✅ Animated Checkmark -->
+                  <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                    style="display: none;">
+                    <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                      stroke-width="4">
+                      <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                      <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                    </svg>
+                  </div>
+
+                  <div class="h-6"></div>
+                  <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
                 </div>
+              </label>
 
-                <div class="h-6"></div>
-                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
-              </div>
-            </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="amount" value="250" class="sr-only" />
 
-            <label class="relative cursor-pointer">
-              <input type="radio" name="amount" value="250" class="sr-only" />
-
-              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                <div class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
                                         flex flex-col justify-between items-center p-2 transition amount-box relative">
 
-                <!-- ✅ Animated Checkmark -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
-                  style="display: none;">
-                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                    stroke-width="4">
-                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                  </svg>
+                  <!-- ✅ Animated Checkmark -->
+                  <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                    style="display: none;">
+                    <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                      stroke-width="4">
+                      <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                      <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                    </svg>
+                  </div>
+
+                  <div class="h-6"></div>
+                  <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
                 </div>
+              </label>
 
-                <div class="h-6"></div>
-                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
-              </div>
-            </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="amount" value="250" class="sr-only" />
 
-            <label class="relative cursor-pointer">
-              <input type="radio" name="amount" value="250" class="sr-only" />
-
-              <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                <div class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
                             flex flex-col justify-between items-center p-2 transition amount-box relative">
 
-                <!-- ✅ Animated Checkmark -->
-                <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
-                  style="display: none;">
-                  <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                    stroke-width="4">
-                    <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                    <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                  </svg>
+                  <!-- ✅ Animated Checkmark -->
+                  <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[10px]"
+                    style="display: none;">
+                    <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                      stroke-width="4">
+                      <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                      <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                    </svg>
+                  </div>
+
+                  <div class="h-6"></div>
+                  <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
                 </div>
+              </label>
 
-                <div class="h-6"></div>
-                <div class="text-sm font-medium mt-auto mb-[-6px]">฿ 1,000</div>
-              </div>
-            </label>
 
+            </div>
+
+            <button
+              class="ripple  mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+              data-ripple="rgba(255, 255, 255, 0.6)">
+              Continue
+            </button>
 
           </div>
-
-          <button
-            class="ripple  mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
-            data-ripple="rgba(255, 255, 255, 0.6)">
-            Continue
-          </button>
-
         </div>
       </div>
-
 
 
 
 
       <!-- Right half - align content to left, full height -->
-      <div class="w-full md:w-1/2 flex justify-center md:justify-end h-full">
+      <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+        <div class="w-full flex items-stretch">
 
-        <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-500 rounded md:h-screen">
-          <h1 class="text-2xl text-blue-900 tracking-wide mb-2">
-            Data Top-up</h1>
+          <div class="lg:max-w-[600px] md:max-w-[600px] w-full bg-blue-100 p-4 text-gray-500 rounded">
+            <h1 class="text-2xl text-blue-900 tracking-wide mb-2">
+              Data Top-up</h1>
 
-          <div class="flex flex-col w-full max-w-md">
-            <label for="telephone1" class="mb-1 text-sm font-medium text-gray-800 pt-4 block">
-              Telephone No.
+            <div class="flex flex-col w-full max-w-md">
+              <label for="telephone1" class="mb-1 text-sm font-medium text-gray-800 pt-4 block">
+                Telephone No.
+              </label>
+              <input type="tel" id="telephone" name="telephone" placeholder="Enter your phone number"
+                class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black" />
+            </div>
+
+
+            <!-- Label -->
+            <label for="telephone2" class="mt-2 text-sm font-medium text-gray-800 block">
+              Select Service Provider
             </label>
-            <input type="tel" id="telephone" name="telephone" placeholder="Enter your phone number"
-              class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black" />
-          </div>
 
-
-          <!-- Label -->
-          <label for="telephone2" class="mt-2 text-sm font-medium text-gray-800 block">
-            Select Service Provider
-          </label>
-
-          <!-- Tabs -->
-          <div class="flex w-full mb-4 mt-1 gap-x-2">
-            <button
-              class="tab-button ripple border-b-4 border-blue-600 bg-white px-4 py-2 flex-1 text-center rounded-t-[4px]"
-              data-ripple="rgba(59, 130, 246, 0.4)" data-tab="ais">
-              <img src="img/AIS.png" class="w-20 h-auto mx-auto" />
-            </button>
-
-
-            <button
-              class="tab-button ripple border-b-4 border-transparent bg-white px-4 py-2 flex-1 text-center rounded-t-[4px]"
-              data-ripple="rgba(59, 130, 246, 0.4)" data-tab="true">
-              <img src="img/True.png" class="w-20 h-auto mx-auto" />
-            </button>
-
-
-            <button
-              class="tab-button ripple border-b-4 border-transparent bg-white px-4 py-2 flex-1 text-center rounded-t-[4px]"
-              data-ripple="rgba(59, 130, 246, 0.4)" data-tab="nt">
-              <img src="img/NT.png" class="w-20 h-auto mx-auto" />
-            </button>
-          </div>
-
-
-          <!-- ✅ Tab Content Wrapper with Fixed Min Height -->
-          <div class="relative min-h-[300px] transition-all duration-300">
-
-            <!-- Tab Content Sections -->
-            <div class="tab-content" id="ais">
-
-              <!-- Make flex-col so children stack vertically -->
-              <div class="flex flex-col justify-center md:justify-start w-full max-w-md">
-
-                <!-- Label -->
-                <label for="telephone2" class="mb-1 text-sm font-medium text-gray-800 block">
-                  Select Data Top-up
-                </label>
-
-                <!-- Grid of Amount Boxes -->
-                <!-- <div class="grid grid-cols-4 gap-2" id="amountGrid"> -->
-                <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid2">
-
-                  <label class="relative cursor-pointer">
-                    <input type="radio" name="amount2" value="250" class="sr-only" />
-
-                    <div class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
-                                        flex flex-col justify-between items-center p-2 transition amount-box relative">
-                      <!-- ✅ Animated Checkmark -->
-                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
-                        style="display: none;">
-                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                          stroke-width="4">
-                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                        </svg>
-                      </div>
-
-                      <!-- New GB Text -->
-                      <div class="text-xs text-gray-600 font-semibold">10 GB</div>
-
-                      <!-- Spacer if needed -->
-                      <div class="h-3"></div>
-
-                      <!-- Price Text -->
-                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
-                    </div>
-                  </label>
-
-
-                  <label class="relative cursor-pointer">
-                    <input type="radio" name="amount2" value="250" class="sr-only" />
-
-                    <div
-                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
-                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
-
-                      <!-- ✅ Animated Checkmark -->
-                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
-                        style="display: none;">
-                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                          stroke-width="4">
-                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                        </svg>
-                      </div>
-
-                      <!-- New GB Text -->
-                      <div class="text-xs text-gray-600 font-semibold">25 GB</div>
-
-                      <!-- Spacer if needed -->
-                      <div class="h-3"></div>
-
-                      <!-- Price Text -->
-                      <div class="text-sm font-medium mb-[-6px]">฿ 500</div>
-                    </div>
-                  </label>
-
-
-                  <label class="relative cursor-pointer">
-                    <input type="radio" name="amount2" value="250" class="sr-only" />
-
-                    <div
-                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
-                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
-
-                      <!-- ✅ Animated Checkmark -->
-                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
-                        style="display: none;">
-                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                          stroke-width="4">
-                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                        </svg>
-                      </div>
-
-                      <!-- New GB Text -->
-                      <div class="text-xs text-gray-600 font-semibold">40 GB</div>
-
-                      <!-- Spacer if needed -->
-                      <div class="h-3"></div>
-
-                      <!-- Price Text -->
-                      <div class="text-sm font-medium mb-[-6px]">฿ 400</div>
-                    </div>
-                  </label>
-
-
-                  <label class="relative cursor-pointer">
-                    <input type="radio" name="amount2" value="250" class="sr-only" />
-
-                    <div
-                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
-                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
-
-                      <!-- ✅ Animated Checkmark -->
-                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
-                        style="display: none;">
-                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                          stroke-width="4">
-                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                        </svg>
-                      </div>
-
-                      <!-- New GB Text -->
-                      <div class="text-xs text-gray-600 font-semibold">50 GB</div>
-
-                      <!-- Spacer if needed -->
-                      <div class="h-3"></div>
-
-                      <!-- Price Text -->
-                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
-                    </div>
-                  </label>
-
-
-                  <label class="relative cursor-pointer">
-                    <input type="radio" name="amount2" value="250" class="sr-only" />
-
-                    <div
-                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
-                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
-
-                      <!-- ✅ Animated Checkmark -->
-                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
-                        style="display: none;">
-                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                          stroke-width="4">
-                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                        </svg>
-                      </div>
-
-                      <!-- New GB Text -->
-                      <div class="text-xs text-gray-600 font-semibold">50 GB</div>
-
-                      <!-- Spacer if needed -->
-                      <div class="h-3"></div>
-
-                      <!-- Price Text -->
-                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
-                    </div>
-                  </label>
-
-
-                  <label class="relative cursor-pointer">
-                    <input type="radio" name="amount2" value="250" class="sr-only" />
-
-                    <div
-                      class="w-17 h-24 md:w-24 md:h-28 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
-                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
-
-                      <!-- ✅ Animated Checkmark -->
-                      <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
-                        style="display: none;">
-                        <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
-                          stroke-width="4">
-                          <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
-                          <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
-                        </svg>
-                      </div>
-
-                      <!-- New GB Text -->
-                      <div class="text-xs text-gray-600 font-semibold">50 GB</div>
-
-                      <!-- Spacer if needed -->
-                      <div class="h-3"></div>
-
-                      <!-- Price Text -->
-                      <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
-                    </div>
-                  </label>
-
-                </div>
-
-              </div>
-
-              <button id="continueBtn"
-                class="ripple mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
-                data-ripple="rgba(255, 255, 255, 0.6)">
-                Continue
+            <!-- Tabs -->
+            <div class="flex w-full mb-4 mt-1 gap-x-2">
+              <button
+                class="tab-button ripple border-b-4 border-blue-600 bg-white px-4 py-2 flex-1 text-center rounded-t-[4px]"
+                data-ripple="rgba(59, 130, 246, 0.4)" data-tab="ais">
+                <img src="img/AIS.png" class="w-20 h-auto mx-auto" />
               </button>
 
+
+              <button
+                class="tab-button ripple border-b-4 border-transparent bg-white px-4 py-2 flex-1 text-center rounded-t-[4px]"
+                data-ripple="rgba(59, 130, 246, 0.4)" data-tab="true">
+                <img src="img/True.png" class="w-20 h-auto mx-auto" />
+              </button>
+
+
+              <button
+                class="tab-button ripple border-b-4 border-transparent bg-white px-4 py-2 flex-1 text-center rounded-t-[4px]"
+                data-ripple="rgba(59, 130, 246, 0.4)" data-tab="nt">
+                <img src="img/NT.png" class="w-20 h-auto mx-auto" />
+              </button>
             </div>
 
-            <div class="tab-content hidden" id="true">
-              <div class="flex justify-center md:justify-start">
-                <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-700 rounded text-center">
-                  <h1 class="text-xl font-medium text-blue-900">True Data Top-up</h1>
-                  <p class="mt-8 text-gray-600">Coming Soon...</p>
+
+            <!-- ✅ Tab Content Wrapper with Fixed Min Height -->
+            <div class="relative min-h-[300px] transition-all duration-300">
+
+              <!-- Tab Content Sections -->
+              <div class="tab-content" id="ais">
+
+                <!-- Make flex-col so children stack vertically -->
+                <div class="flex flex-col justify-center md:justify-start w-full max-w-md">
+
+                  <!-- Label -->
+                  <label for="telephone2" class="mb-1 text-sm font-medium text-gray-800 block">
+                    Select Data Top-up
+                  </label>
+
+                  <!-- Grid of Amount Boxes -->
+
+                  <div class="grid gap-2 grid-cols-[repeat(auto-fill,minmax(100px,1fr))]" id="amountGrid2">
+
+
+                    <label class="relative cursor-pointer">
+                      <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                      <div
+                        class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+                        <!-- ✅ Animated Checkmark -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                          style="display: none;">
+                          <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                            <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                          </svg>
+                        </div>
+
+                        <!-- New GB Text -->
+                        <div class="text-xs text-gray-600 font-semibold">10 GB</div>
+
+                        <!-- Spacer if needed -->
+                        <div class="h-3"></div>
+
+                        <!-- Price Text -->
+                        <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                      </div>
+                    </label>
+
+                    <label class="relative cursor-pointer">
+                      <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                      <div
+                        class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                        <!-- ✅ Animated Checkmark -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                          style="display: none;">
+                          <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                            <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                          </svg>
+                        </div>
+
+                        <!-- New GB Text -->
+                        <div class="text-xs text-gray-600 font-semibold">25 GB</div>
+
+                        <!-- Spacer if needed -->
+                        <div class="h-3"></div>
+
+                        <!-- Price Text -->
+                        <div class="text-sm font-medium mb-[-6px]">฿ 500</div>
+                      </div>
+                    </label>
+
+
+                    <label class="relative cursor-pointer">
+                      <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                      <div
+                        class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                        <!-- ✅ Animated Checkmark -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                          style="display: none;">
+                          <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                            <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                          </svg>
+                        </div>
+
+                        <!-- New GB Text -->
+                        <div class="text-xs text-gray-600 font-semibold">40 GB</div>
+
+                        <!-- Spacer if needed -->
+                        <div class="h-3"></div>
+
+                        <!-- Price Text -->
+                        <div class="text-sm font-medium mb-[-6px]">฿ 400</div>
+                      </div>
+                    </label>
+
+
+                    <label class="relative cursor-pointer">
+                      <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                      <div
+                        class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                        <!-- ✅ Animated Checkmark -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                          style="display: none;">
+                          <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                            <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                          </svg>
+                        </div>
+
+                        <!-- New GB Text -->
+                        <div class="text-xs text-gray-600 font-semibold">50 GB</div>
+
+                        <!-- Spacer if needed -->
+                        <div class="h-3"></div>
+
+                        <!-- Price Text -->
+                        <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                      </div>
+                    </label>
+
+
+                    <label class="relative cursor-pointer">
+                      <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                      <div
+                        class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                        <!-- ✅ Animated Checkmark -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                          style="display: none;">
+                          <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                            <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                          </svg>
+                        </div>
+
+                        <!-- New GB Text -->
+                        <div class="text-xs text-gray-600 font-semibold">50 GB</div>
+
+                        <!-- Spacer if needed -->
+                        <div class="h-3"></div>
+
+                        <!-- Price Text -->
+                        <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                      </div>
+                    </label>
+
+
+                    <label class="relative cursor-pointer">
+                      <input type="radio" name="amount2" value="250" class="sr-only" />
+
+                      <div
+                        class="w-full aspect-[1/1] border border-gray-300 rounded-lg bg-gray-100 text-gray-800 
+                                                            flex flex-col justify-between items-center p-2 transition amount-box relative">
+
+                        <!-- ✅ Animated Checkmark -->
+                        <div class="absolute inset-0 flex items-center justify-center z-10 checkmark -translate-y-[0px]"
+                          style="display: none;">
+                          <svg class="w-10 h-10 text-green-500" viewBox="0 0 52 52" fill="none" stroke="currentColor"
+                            stroke-width="4">
+                            <circle cx="26" cy="26" r="24" fill="none" class="circle"></circle>
+                            <path d="M16 26l8 8 12-14" fill="none" class="check"></path>
+                          </svg>
+                        </div>
+
+                        <!-- New GB Text -->
+                        <div class="text-xs text-gray-600 font-semibold">50 GB</div>
+
+                        <!-- Spacer if needed -->
+                        <div class="h-3"></div>
+
+                        <!-- Price Text -->
+                        <div class="text-sm font-medium mb-[-6px]">฿ 250</div>
+                      </div>
+                    </label>
+
+
+                  </div>
+                </div>
+
+                <button id="continueBtn"
+                  class="ripple mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+                  data-ripple="rgba(255, 255, 255, 0.6)">
+                  Continue
+                </button>
+
+              </div>
+
+              <div class="tab-content hidden" id="true">
+                <div class="flex justify-center md:justify-start">
+                  <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-700 rounded text-center">
+                    <h1 class="text-xl font-medium text-blue-900">True Data Top-up</h1>
+                    <p class="mt-8 text-gray-600">Coming Soon...</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="tab-content hidden" id="nt">
-              <div class="flex justify-center md:justify-start">
-                <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-700 rounded text-center">
-                  <h1 class="text-xl font-medium text-blue-900">NT Data Top-up</h1>
-                  <p class="mt-8 text-gray-600">Coming Soon...</p>
+              <div class="tab-content hidden" id="nt">
+                <div class="flex justify-center md:justify-start">
+                  <div class="max-w-[600px] w-full h-full bg-blue-100 p-4 text-gray-700 rounded text-center">
+                    <h1 class="text-xl font-medium text-blue-900">NT Data Top-up</h1>
+                    <p class="mt-8 text-gray-600">Coming Soon...</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
+            </div>
           </div>
+
         </div>
-
       </div>
-
     </div>
   </div>
 
@@ -685,7 +790,7 @@
               Proceed to Pay
             </button>
             <button
-              class="ripple w-full bg-gray-200 text-gray-800 text-sm font-normal mt-2 py-1 px-4 rounded-lg hover:bg-gray-300 transition duration-200"
+              class="ripple w-full bg-gray-200 text-gray-800 text-sm font-normal mt-2 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-200"
               data-ripple="rgba(255, 255, 255, 0.6)">
               Cancel
             </button>
